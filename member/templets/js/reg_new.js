@@ -1,8 +1,8 @@
-
+<!--
 $(document).ready(function()
 {
 	//用户类型
-	/*if($('.usermtype2').attr("checked")==true) $('#uwname').text('公司名称：'); 
+	if($('.usermtype2').attr("checked")==true) $('#uwname').text('公司名称：'); 
 	$('.usermtype').click(function()
 	{
 		$('#uwname').text('用户笔名：');
@@ -10,14 +10,14 @@ $(document).ready(function()
 	$('.usermtype2').click(function()
 	{
 		$('#uwname').text('公司名称：');
-	});*/
+	});
 	//checkSubmit
 	$('#regUser').submit(function ()
 	{
-		/*if(!$('#agree').get(0).checked) {
+		if(!$('#agree').get(0).checked) {
 			alert("你必须同意注册协议！");
 			return false;
-		}*/
+		}
 		if($('#txtUsername').val()==""){
 			$('#txtUsername').focus();
 			alert("用户名不能为空！");
@@ -35,12 +35,12 @@ $(document).ready(function()
 			alert("两次密码不一致！");
 			return false;
 		}
-		/*if($('#uname').val()=="")
+		if($('#uname').val()=="")
 		{
 			$('#uname').focus();
 			alert("用户昵称不能为空！");
 			return false;
-		}*/
+		}
 		if($('#vdcode').val()=="")
 		{
 			$('#vdcode').focus();
@@ -50,21 +50,14 @@ $(document).ready(function()
 	})
 	
 	//AJAX changChickValue
-	/*$("#txtUsername").change( function() {
-		$.ajax({type: reMethod,url: "index_do.php",
+	$("#txtUsername").change( function() {
+		$.ajax({type: reMethod,url: "member/index_do.php",
 		data: "dopost=checkuser&fmdo=user&cktype=1&uid="+$("#txtUsername").val(),
 		dataType: 'html',
-		success: function(result){$("#_userid").html(result);}}); 
-	});*/
-	$("#txtUsername").change( function() {
-$.ajax({type: reMethod,url: "member/index_do.php",
-data: "dopost=checkuser&fmdo=user&cktype=1&uid="+$("#txtUsername").val(),
-dataType: 'html',
-success: function(result){
-$("#_userid").html(result);
-$("#uname").val($("#txtUsername").val());
-}});
-});
+		success: function(result){$("#_userid").html(result);
+		$("#uname").val($("#txtUsername").val());
+		}}); 
+	});
 	
 	/*
 	$("#uname").change( function() {
@@ -132,3 +125,4 @@ $("#uname").val($("#txtUsername").val());
 		return false;
 	});
 });
+-->

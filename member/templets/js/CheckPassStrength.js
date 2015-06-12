@@ -3,7 +3,6 @@
  ******************************************************************************************/
 checkPasswordLevel = function(strPassword)
 {
-	
 	var result = 0;
 	if ( strPassword.length == 0)
 		result += 0;

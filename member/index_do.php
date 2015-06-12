@@ -10,6 +10,7 @@ require_once(dirname(__FILE__)."/config.php");
 if(empty($dopost)) $dopost = '';
 if(empty($fmdo)) $fmdo = '';
 
+
 /*********************
 function check_email()
 *******************/
@@ -305,7 +306,8 @@ else if($fmdo=='login')
                     }
                 }
                 $rs = 1;
-                $row = $dsql->GetOne("SELECT `mid`, `pwd` FROM #@__member WHERE `userid`='$username'");
+				$row = $dsql->GetOne("SELECT `mid`, `pwd` FROM #@__member WHERE `userid`='$username' or `email`='$username'");
+              //  $row = $dsql->GetOne("SELECT `mid`, `pwd` FROM #@__member WHERE `userid`='$username'");
                 if(isset($row['mid']))
                 {
                     $cfg_ml->PutLoginInfo($row['mid']);
@@ -348,9 +350,10 @@ else if($fmdo=='login')
         {
             // 清除会员缓存
             $cfg_ml->DelCache($cfg_ml->M_ID);
+		
             if(empty($gourl) || preg_match("#action|_do#i", $gourl))
             {
-                ShowMsg("成功登录，5秒钟后转向系统主页...","index.php",0,2000);
+                ShowMsg("成功登录，3秒钟后转向系统主页...","/",0,1000);
             }
             else
             {

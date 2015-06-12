@@ -14,7 +14,9 @@ if($cfg_mb_allowreg=='N')
     exit();
 }
 
+
 if(!isset($dopost)) $dopost = '';
+
 $step = empty($step)? 1 : intval(preg_replace("/[^\d]/", '', $step));
 
 if($step == 1)
@@ -82,7 +84,6 @@ if($step == 1)
         
         $uname = HtmlReplace($uname, 1);
         //用户笔名重复检测
-		$uname = $userid;
         if($cfg_mb_wnameone=='N')
         {
             $row = $dsql->GetOne("SELECT * FROM `#@__member` WHERE uname LIKE '$uname' ");
